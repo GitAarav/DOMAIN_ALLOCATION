@@ -6,6 +6,7 @@ const connectDB = require('./config/db');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 const emailRoutes = require('./routes/valiEmailRoutes');
+const questionRoutes  = require('./routes/questionRoutes');
 
 
 connectDB();
@@ -18,6 +19,9 @@ app.get('/', (req, res) =>{
 })
 
 app.use('/email' , emailRoutes);
+app.use('/domain',questionRoutes);
+
+
 const port = process.env.PORT || 5000;
 app.listen(port,  () =>{
     console.log(`Server running on port ${port}`)

@@ -37,11 +37,9 @@ router.post('/' , async(req,res) =>{
 router.get('/',async(req,res) =>{
     try{
         const mail = await emailValid.find();
-        res.status(200).send({
-            message :'data fetched',
-            success : true,
-            data : mail
-        });
+        res.status(200).send(
+             mail
+        );
     }catch(err){
         console.log(err);
         res.status(400).send({
